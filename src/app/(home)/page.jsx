@@ -32,7 +32,14 @@ export default function Landing() {
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-0 sm:pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:max-w-2xl lg:flex-shrink-0 lg:pt-8">
           <FadeIn>
-            <h1 className="mt-10 sm:mt-24 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <Image
+              className="h-16 lg:mt-2"
+              width={64}
+              height={64}
+              src="/images/alpha.svg"
+              alt="Alpha"
+            />
+            <h1 className="mt-10 sm:mt-20 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               <span className="text-wine">FIND</span> great jobs at startups
               that share your <span className="text-secondary">interests</span>{" "}
               and <span className="text-primary">values</span>
@@ -46,32 +53,39 @@ export default function Landing() {
               </p>
             </FadeIn>
             <FadeIn>
-              <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full">
-                <div className="flex-shrink w-full sm:w-auto">
-                  <label htmlFor="email" className="sr-only">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="block w-full rounded-xs border-0 py-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                    placeholder="Write your email here"
-                  />
-                </div>
-                <button
-                  type="button"
-                  className="rounded-xs bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              <div className="mt-10" action="/api/" method="POST">
+                <form
+                  action="/api"
+                  method="post"
+                  className="flex flex-col sm:flex-row items-center gap-4 w-full"
                 >
-                  Sign me Up
-                </button>
+                  <div className="flex-shrink w-full sm:w-auto">
+                    <label htmlFor="email" className="sr-only">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      id="email"
+                      className="block w-full rounded-xs border-0 py-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-wine sm:text-sm sm:leading-6"
+                      placeholder="Write your email here"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="rounded-xs bg-wine px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wine"
+                  >
+                    Sign me Up
+                  </button>
+                </form>
               </div>
             </FadeIn>
           </FadeInStagger>
         </div>
-        <div className="mx-auto mt-16 flex sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+        <div className="mx-auto mt-16 flex sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-24">
           <div className="max-w-3xl md:mt-16 flex-none sm:max-w-5xl lg:max-w-none">
-            <div className="rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+            <div className="rounded-xl bg-violette/5 p-2 ring-1 ring-inset ring-violette/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <Image
                 src="/images/email.png"
                 alt="Email screenshot"

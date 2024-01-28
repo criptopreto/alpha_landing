@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "@mailerlite/mailerlite-nodejs": "^1.2.0",
     "@tailwindcss/forms": "^0.5.7",
     "@vercel/analytics": "^1.1.2",
     "@vercel/speed-insights": "^1.0.8",
+    "axios": "^1.6.7",
     "framer-motion": "^11.0.3",
     "next": "14.1.0",
     "react": "^18",
