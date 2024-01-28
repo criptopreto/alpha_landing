@@ -16,7 +16,13 @@ export const metadata = {
   openGraph: {
     title: "Sign Up Alpha",
     description: "Find great jobs at ♥️ startups",
-    image: "/images/opengraph-image.png",
+    images: [
+      {
+        url: "/images/opengraph-image.png", // Must be an absolute URL
+        width: 630,
+        height: 632,
+      },
+    ],
   },
 };
 
