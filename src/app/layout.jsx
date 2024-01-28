@@ -18,7 +18,7 @@ export const metadata = {
     description: "Find great jobs at ♥️ startups",
     images: [
       {
-        url: "/images/opengraph-image.png", // Must be an absolute URL
+        url: "https://signupalpha.com/images/opengraph-image.png", // Must be an absolute URL
         width: 630,
         height: 632,
       },
