@@ -1,4 +1,6 @@
 import { Space_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+
 import "./globals.css";
 
 const space = Space_Mono({
@@ -14,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={space.className}>{children}</body>
+      <body className={space.className}>
+        {children} <Analytics />
+      </body>
     </html>
   );
 }
