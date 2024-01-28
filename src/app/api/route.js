@@ -27,10 +27,12 @@ export async function POST(req) {
   try {
     const result = await mailerlite.subscribers.createOrUpdate(data);
 
-    return Response.json({ success: true, data: result.data });
+    return Response.json({ success: true, data: result.data, ip });
   } catch (error) {
     console.log(error);
     return Response.json({
+      success: false,
+
       error: error.message || error.toString(),
     });
   }
