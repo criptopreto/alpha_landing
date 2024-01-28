@@ -12,6 +12,12 @@ const space = Space_Mono({
 export const metadata = {
   title: "Sign Up Alpha",
   description: "Find great jobs at ♥️ startups",
+  keywords: ["Startups", "Jobs", "Values", "Interests"],
+  openGraph: {
+    title: "Sign Up Alpha",
+    description: "Find great jobs at ♥️ startups",
+    image: "/images/opengraph-image.png",
+  },
 };
 
 export default function RootLayout({ children }) {
