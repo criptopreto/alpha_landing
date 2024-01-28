@@ -8,7 +8,7 @@ const space = Space_Mono({
 
 export const metadata = {
   title: "Sign Up Alpha",
-  description: "Work in progress",
+  description: "Find great jobs at ♥️ startups",
 };
 
 export default function RootLayout({ children }) {
