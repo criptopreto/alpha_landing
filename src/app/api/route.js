@@ -20,12 +20,11 @@ function getIP() {
 }
 
 export async function POST(req) {
-  const formData = await req.formData();
-  req.hea;
+  const formData = await req.json();
 
   const ip = getIP();
 
-  const email = formData.get("email");
+  const { email } = formData;
 
   if (!email) {
     return Response.json({ error: "Email is required" });
@@ -40,7 +39,7 @@ export async function POST(req) {
   try {
     const result = await mailerlite.subscribers.createOrUpdate(data);
 
-    return Response.json({ success: true, data: result.data, ip });
+    return Response.redirect(new URL("/", req.url));
   } catch (error) {
     console.log(error);
     return Response.json({

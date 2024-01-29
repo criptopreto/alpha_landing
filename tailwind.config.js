@@ -18,6 +18,9 @@ module.exports = {
         violette: "#5E1BDC",
         wine: "#DC1B38",
       },
+      transitionProperty: {
+        visibility: "visibility",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

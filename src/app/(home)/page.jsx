@@ -1,9 +1,48 @@
 "use client";
 
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
+import clsx from "clsx";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Landing() {
+  const [formData, setFormData] = useState({
+    email: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      const response = await fetch("/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Handle response as needed
+      setMessage("Jobs landing in your inbox soon! ✨");
+    } catch (error) {
+      console.error("Error submitting form", error);
+      setMessage("Hubo un error al enviar el formulario. 😰");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="relative isolate overflow-hidden bg-white">
       <svg
@@ -55,8 +94,7 @@ export default function Landing() {
             <FadeIn>
               <div className="mt-10" action="/api/" method="POST">
                 <form
-                  action="/api"
-                  method="post"
+                  onSubmit={handleSubmit}
                   className="flex flex-col sm:flex-row items-center gap-4 w-full"
                 >
                   <div className="flex-shrink w-full sm:w-auto">
@@ -66,6 +104,8 @@ export default function Landing() {
                     <input
                       type="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       required
                       id="email"
                       className="block w-full rounded-xs border-0 py-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-wine sm:text-sm sm:leading-6"
@@ -75,10 +115,19 @@ export default function Landing() {
                   <button
                     type="submit"
                     className="rounded-xs bg-wine px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wine"
+                    disabled={loading}
                   >
-                    Sign me Up
+                    {loading ? "Sending..." : "Sign me Up"}
                   </button>
                 </form>
+                <p
+                  className={clsx(
+                    message !== "" ? "opacity-100" : "opacity-0",
+                    "pt-2 text-lg font-semibold transition-all duration-700"
+                  )}
+                >
+                  {message}
+                </p>
               </div>
             </FadeIn>
           </FadeInStagger>
