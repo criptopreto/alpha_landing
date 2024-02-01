@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
+import clsx from "clsx";
 
 const space = Space_Mono({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={space.className}>
+      <body className={clsx(space.className, "bg-white")}>
         {children}
         <Analytics />
         <SpeedInsights />

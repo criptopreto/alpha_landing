@@ -108,7 +108,7 @@ export default function Landing() {
                       onChange={handleChange}
                       required
                       id="email"
-                      className="block w-full rounded-xs border-0 py-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-wine sm:text-sm sm:leading-6"
+                      className="block bg-white/30 w-full rounded-xs border-0 py-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-wine sm:text-sm sm:leading-6"
                       placeholder="Write your email here"
                     />
                   </div>

@@ -38,8 +38,7 @@ export async function POST(req) {
 
   try {
     const result = await mailerlite.subscribers.createOrUpdate(data);
-
-    return Response.redirect(new URL("/", req.url));
+    return Response.json({ success: true });
   } catch (error) {
     console.log(error);
     return Response.json({
